@@ -2,12 +2,12 @@
 <!--Author:Natasha Lucio-->
 <!--Course:CSCI 1300-W1-->
 <!--Program Date:11-24-2021-->
-<!--Description:Assignment 6/ q1-->
+<!--Description:Assignment 6/ q2-->
 
 <html lang="en">
 
     <head>
-        <title>Natasha's Book App</title>
+        <title>Natasha's Age App</title>
         <meta charset="UTF-8">
 
         <style>
@@ -23,11 +23,11 @@
                 border: 2px solid white;
                 box-sizing: border-box;
                 margin: 5px;
-            }
+           }
             
            #header-h1 {
                text-align: center;
-              font-family:Georgia, 'Times New Roman', Times, serif;
+               font-family: Georgia, 'Times New Roman', Times, serif;
             }
 
            main {
@@ -37,7 +37,7 @@
             background-color: #FFCCD2;
 	        border-radius: 15px;
 	        border: 2px solid white;
-            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             box-sizing: border-box;
            }
 
@@ -57,61 +57,42 @@
     </head>
 
     <body>
-
         <header id="header-background">
-            <h1 id="header-h1">Natasha's Book App</h1>
+            <h1 id="header-h1">Natasha's Age App</h1>
             <hr>
         </header>
         
         <main>
-            <form name="book" action="javascript:bookInfo()">
-                
-                <div>Click the button to begin
-                <input type="submit" value="START">
+            <form name="age" action="javascript:ageApp()">
+                <div>
+                    Please enter your age:
+                    <input type="text" name="originalAge">
+                    <input type="submit" value="Submit">
                 </div>
-
-                <div id="title">Title:</div>
-            
-                <div id="author">Author:</div>
-            
-                <div id="subject">Subject Matter:</div>
             </form>
-        </main>
-                    
-        <script>
-            function bookInfo() {
-         
-                let title = prompt("Enter a book title");
-                let author = prompt("Who is the author?");
-                let subject = prompt("What genre is it?");
-                
-                if (title == "") {
-                    alert("You did not enter a book title.");
-                } else {
-                    document.getElementById("title").innerHTML = "The book title is: " +title;
-                }
-                
-                if (author == "") {
-                    alert("You did not enter an author.");
-                } else {
-               document.getElementById("author").innerHTML = "The author is: " +author;
-                }
-
-                if (subject == "") {
-                    alert("You did not enter a genre.");
-                } else {
-               document.getElementById("subject").innerHTML = "The subject is: " +subject;
-                }
-            }
-        </script>
     
+            <div>addFive: <span id="addFive"></span></div>
+            <div>timesTwo: <span id="timesTwo"></span></div>
+            
+        <script>
+            function ageApp() {
+                let originalAge = document.age.originalAge.value; 
+    
+                originalAge = parseFloat(originalAge); //this converts the data type of price from string to number
+
+                let addFive = originalAge + 5; 
+                let timesTwo = addFive * 2; 
+    
+                    if (originalAge <= 0) {
+                        alert("Please enter a valid age.");
+                    } else {
+                    document.getElementById("addFive").innerHTML = addFive;
+                    document.getElementById("timesTwo").innerHTML = timesTwo;
+                    }
+                }
+        </script>
+        </main>
+
         <footer>Copyright &copy; Natasha Lucio 2021</footer>    
     </body>
 </html>
-
-
-
-
-
-
-
